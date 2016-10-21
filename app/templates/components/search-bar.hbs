@@ -1,0 +1,31 @@
+<div class="search-container">
+    <div class="search-bar">
+        {{input type="query" value=query placeholder="Search" autofocus="autofocus"}}
+    </div>
+    {{#if searchResults}}
+        <div class="results">
+            {{#each searchResults as |song|}}
+                <!-- TODO make following card div into a component -->
+                <div class="card result">
+                    <img class="card-image" src={{song.artwork}}/>
+                    <div class="details">
+                        <div class="song-title">{{song.title}}</div>
+                        <div class="artist">{{song.artist}}</div>
+                        <div class="soundcloud-link"></div>
+                        <div class="votes">
+                            Votes: {{song.votes}}
+                        </div>
+                    </div>
+                    <div class="add-button" {{action 'addSong' song}}>
+                        Add
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <!-- TODO -->
+    <!-- {{else}}
+        <div class="no-results">
+            No results were found
+        </div> -->
+    {{/if}}
+</div>

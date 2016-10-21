@@ -1,0 +1,154 @@
+@import "bootstrap";
+
+// Colours
+$background: #FCFCFC;
+$shadow: rgba(0, 0, 0, 0.08);
+$shadow-hover: rgba(0, 0, 0, 0.16);
+$topbar: rgba(255, 255, 255, .98);
+$light-grey-font: #BEC2C9;
+$regular-grey-font: #90949C;
+$header-grey-font: #4B4F56;
+$line: #E9EBEE;
+
+$fonts: 'San Francisco', -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+//Set sizes
+$card-shadow-size: 0px 15px 15px;
+$card-shadow-hover-size: 0px 35px 35px;
+
+body {
+    font-family: $fonts;
+    background-color: $background !important;
+}
+
+.topbar {
+    width: 100%;
+    height: 66px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 2px 40px 0px $shadow;
+    background-color: $topbar;
+    z-index: 9999;
+    top: 0;
+    background-image: url("/img/partyall_logo.png");
+    background-size: 180px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main-container {
+    margin-top: 66px;
+}
+
+.now-playing-container {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.card {
+    background-color: white;
+    box-shadow: $card-shadow-size $shadow;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
+}
+
+.card.now-playing:hover {
+    box-shadow: $card-shadow-hover-size $shadow-hover;
+    transform: translate(0, -5px);
+}
+
+.card.queue:hover {
+    box-shadow: 0 20px 20px rgba(0,0,0,.16);
+    transform: translate(0, -3px);
+}
+
+.card .song-title {
+    color: $header-grey-font;
+}
+
+.card .artist {
+    color: $regular-grey-font;
+}
+
+.card.now-playing {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card.now-playing .details {
+    padding: 20px;
+    text-align: center;
+}
+
+.card.now-playing .details .song-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card.now-playing .details .artist {
+    font-size: 16px;
+}
+
+.card.now-playing .player {
+    padding-bottom: 20px;
+    margin: 0 20px;
+    border-top: 1px solid $line;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.card.now-playing .player .control {
+    display: inline-block;
+    margin-right: 15px;
+    color: $light-grey-font;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.card.now-playing .card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card.queue {
+    max-height: 100px;
+    margin: 20px 0;
+}
+
+.card.queue .card-image {
+    height: 100px;
+    width: auto;
+    display: inline-block;
+}
+
+.card.queue .details {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.card.queue .details .song-title {
+    font-size: 18px;
+}
+
+.card.queue .details .votes {
+    padding-top: 5px;
+    font-size: 16px;
+    color: $header-grey-font;
+    font-weight: 300;
+}
+
+.card.queue .play-button {
+    text-align: right;
+    float: right;
+    padding-top: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $light-grey-font;
+    padding-right: 20px;
+    cursor: pointer;
+    user-select: none;
+}

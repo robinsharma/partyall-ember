@@ -1,0 +1,43 @@
+<div class="topbar"></div>
+<!-- TODO -->
+<!-- {{#search-bar}}{{/search-bar}} -->
+<div class="container">
+    <div class="search-bar"></div>
+    <div class="col-md-5 now-playing-container">
+        <div class="card now-playing">
+            <img class="card-image" src={{nowPlaying.artwork}}>
+            <div class="details">
+                <div class="song-title">{{nowPlaying.title}}</div>
+                <div class="artist">{{nowPlaying.artist}}</div>
+                <div class="soundcloud-link"></div>
+            </div>
+            <div class="player">
+                <div class="play control" {{action 'togglePlay'}}>
+                    {{if isPlaying 'Pause' 'Play'}}
+                </div>
+                <div class="next control" {{action 'nextSong'}}>
+                    Next
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 queue-container">
+        {{#each queue as |song|}}
+            <!-- TODO make following card div into a component -->
+            <div class="card queue">
+                <img class="card-image" src={{song.artwork}}/>
+                <div class="details">
+                    <div class="song-title">{{song.title}}</div>
+                    <div class="artist">{{song.artist}}</div>
+                    <div class="soundcloud-link"></div>
+                    <div class="votes">
+                        Votes: {{song.votes}}
+                    </div>
+                </div>
+                <div class="play-button" {{action 'playSong' song}}>
+                    Play
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
